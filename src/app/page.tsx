@@ -12,7 +12,7 @@ export default function Home() {
               <h1 className="display-4 fw-bold mb-4">
                 FreakA<span className="text-pink">Britt</span>
               </h1>
-              <p className="lead mb-5">Dancer, Reality TV Star, and Entrepreneur</p>
+              <p className="lead mb-5">Professional Escort, and Entrepreneur</p>
               <div className="d-flex justify-content-center gap-3">
                 <Link href="/booking" className="btn btn-pink btn-lg px-4 py-2">
                   Book Now

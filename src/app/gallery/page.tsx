@@ -4,7 +4,6 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import MainLayout from "../../../components/MainLayout";
 
-// ✅ Define proper type for items
 type GalleryItem = {
   id: number;
   type: string;
@@ -12,12 +11,11 @@ type GalleryItem = {
   image: string;
 };
 
-// ✅ Sample gallery items
 const sampleItems: GalleryItem[] = [
   { id: 1, type: "photo", category: "Sexy", image: "/assets/images/britt1.jpg" },
-  { id: 2, type: "photo", category: "cum", image: "/assets/images/britt2.jpg" },
-  { id: 3, type: "photo", category: "luxury", image: "/assets/images/britt3.jpg" },
-  { id: 4, type: "photo", category: "personal", image: "/assets/images/britt4.jpg" },
+  { id: 2, type: "photo", category: "Cum", image: "/assets/images/britt2.jpg" },
+  { id: 3, type: "photo", category: "Luxury", image: "/assets/images/britt3.jpg" },
+  { id: 4, type: "photo", category: "Personal", image: "/assets/images/britt4.jpg" },
 ];
 
 export default function Gallery() {
@@ -64,11 +62,7 @@ export default function Gallery() {
             <div className="col-md-6 col-lg-4">
               <div className="d-flex align-items-center">
                 <label className="me-3 fw-medium">Category:</label>
-                <select
-                  className="form-select"
-                  value={filter}
-                  onChange={(e) => setFilter(e.target.value)}
-                >
+                <select className="form-select" value={filter} onChange={(e) => setFilter(e.target.value)}>
                   <option value="all">All Categories</option>
                   <option value="sexy">Sexy</option>
                   <option value="cum">Cum</option>
@@ -81,11 +75,7 @@ export default function Gallery() {
             <div className="col-md-6 col-lg-4">
               <div className="d-flex align-items-center">
                 <label className="me-3 fw-medium">Media Type:</label>
-                <select
-                  className="form-select"
-                  value={mediaType}
-                  onChange={(e) => setMediaType(e.target.value)}
-                >
+                <select className="form-select" value={mediaType} onChange={(e) => setMediaType(e.target.value)}>
                   <option value="all">All Media</option>
                   <option value="photo">Photos</option>
                   <option value="video">Videos</option>
@@ -112,7 +102,7 @@ export default function Gallery() {
                         height: "300px",
                         borderRadius: "10px",
                         overflow: "hidden",
-                        backgroundColor: "#333",
+                        backgroundColor: "#000",
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
@@ -127,23 +117,26 @@ export default function Gallery() {
                           width: "100%",
                           height: "100%",
                           objectFit: "cover",
-                          filter: isProtected ? "blur(10px)" : "none",
-                          transition: "filter 0.3s ease",
+                          filter: isProtected ? "blur(15px) brightness(0.6)" : "none",
+                          pointerEvents: "none",
+                          userSelect: "none",
+                          transition: "0.3s ease",
                         }}
+                        loading="lazy"
                       />
                       {isProtected && (
-                        <button
-                          className="btn btn-light btn-sm position-absolute"
+                        <div
+                          className="position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-center"
                           style={{
-                            top: "50%",
-                            left: "50%",
-                            transform: "translate(-50%, -50%)",
+                            backgroundColor: "rgba(0, 0, 0, 0.4)",
+                            backdropFilter: "blur(3px)",
+                            color: "#fff",
                             zIndex: 2,
-                            fontWeight: "bold",
                           }}
                         >
-                          Click Me
-                        </button>
+                          <i className="bi bi-lock-fill fs-1 mb-2"></i>
+                          <span className="fw-bold">Premium — Click to Unlock</span>
+                        </div>
                       )}
                     </div>
                   </div>
@@ -162,30 +155,19 @@ export default function Gallery() {
 
       {/* Modal */}
       {showModal && (
-        <div
-          className="modal show fade d-block"
-          tabIndex={-1}
-          style={{ backgroundColor: "rgba(0, 0, 0, 0.7)" }}
-        >
+        <div className="modal show fade d-block" tabIndex={-1} style={{ backgroundColor: "rgba(0, 0, 0, 0.7)" }}>
           <div className="modal-dialog modal-dialog-centered">
             <div className="modal-content text-center">
               <div className="modal-header">
                 <h5 className="modal-title">Premium Content</h5>
-                <button
-                  type="button"
-                  className="btn-close"
-                  onClick={() => setShowModal(false)}
-                ></button>
+                <button type="button" className="btn-close" onClick={() => setShowModal(false)}></button>
               </div>
               <div className="modal-body">
                 <p>This content requires payment to view.</p>
                 <h4 className="text-danger">$100</h4>
               </div>
               <div className="modal-footer justify-content-center">
-                <button
-                  className="btn btn-secondary"
-                  onClick={() => setShowModal(false)}
-                >
+                <button className="btn btn-secondary" onClick={() => setShowModal(false)}>
                   Cancel
                 </button>
                 <button className="btn btn-primary" onClick={handlePaymentRedirect}>
