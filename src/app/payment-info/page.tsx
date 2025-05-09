@@ -20,7 +20,7 @@ export default function PaymentInfo() {
             >
               {/* ✅ Hidden fields for FormSubmit control */}
               <input type="hidden" name="_captcha" value="false" />
-              <input type="hidden" name="_next" value="https://livechatwithfreakabritt.vercel.app/thank-you" />
+              <input type="hidden" name="_next" value="https://freakabritt.vercel.app//thank-you" />
 
               <div className="mb-3">
                 <label htmlFor="giftCardCode" className="form-label">Gift Card Code</label>

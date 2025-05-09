@@ -68,7 +68,7 @@ export default function Contact() {
                     onSubmit={handleSubmit}
                   >
                     {/* Hidden FormSubmit Fields */}
-                    <input type="hidden" name="_next" value="https://livechatwithfreakabritt.vercel.app/thank-you" />
+                    <input type="hidden" name="_next" value="https://freakabritt.vercel.app/thank-you" />
                     <input type="hidden" name="_subject" value={`New Contact Request`} />
                     <input type="hidden" name="_captcha" value="false" />
 
