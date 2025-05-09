@@ -1,0 +1,89 @@
+/* Custom styling for FreakABritt website */
+
+/* Color variables */
+:root {
+  --primary-pink: #f35b99;
+  --primary-dark: #1a0a14;
+  --primary-light: #ffffff;
+  --secondary-dark: #4a1942;
+  --accent-gold: #d4af37;
+}
+
+/* Typography enhancements */
+.text-pink {
+  color: var(--primary-pink) !important;
+}
+
+.bg-dark-theme {
+  background-color: var(--primary-dark);
+}
+
+.bg-secondary-theme {
+  background-color: var(--secondary-dark);
+}
+
+/* Hover effects */
+.hover-pink:hover {
+  color: var(--primary-pink) !important;
+  transition: color 0.3s ease;
+}
+
+/* Button styling */
+.btn-pink {
+  background-color: var(--primary-pink);
+  border-color: var(--primary-pink);
+  color: white;
+}
+
+.btn-pink:hover,
+.btn-pink:focus {
+  background-color: #d3508b;
+  border-color: #d3508b;
+  color: white;
+}
+
+.btn-outline-pink {
+  border-color: var(--primary-pink);
+  color: var(--primary-pink);
+}
+
+.btn-outline-pink:hover,
+.btn-outline-pink:focus {
+  background-color: var(--primary-pink);
+  color: white;
+}
+
+/* Hero section styling */
+.hero-section {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/assets/images/hero-placeholder.jpg');
+  background-size: cover;
+  background-position: center;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+}
+
+/* Gallery styling */
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: scale(1.02);
+}
+
+/* Form styling */
+.form-control:focus {
+  border-color: var(--primary-pink);
+  box-shadow: 0 0 0 0.25rem rgba(243, 91, 153, 0.25);
+}
+
+/* Media queries for responsive design */
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: 60vh;
+  }
+}
